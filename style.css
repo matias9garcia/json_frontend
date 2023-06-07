@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: black;
+    width: 100%;
+    padding: 1em;
+    
+}
+
+header ul {
+    list-style-type: none;
+    display: flex;
+}
+
+#lista_productos {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 0;
+    
+}
+
+.producto {
+    width: max-content;
+    padding: 1em;
+    border: 0.5px;
+    border-color: blueviolet;
+    border-style: solid;
+}
+
+header ul li {
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
+
+html {
+    font-family: 'Geologica', sans-serif;
+}
+
+section {
+    text-align: center;
+}
+
+img {
+    width: 350px;
+    height: 350px;
+}
+
+.precio {
+    color: green;
+    font-weight: bold;
+}
