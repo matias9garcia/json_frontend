@@ -6,6 +6,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100&display=swap" rel="stylesheet">
 
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,17 +18,25 @@
 <body>
     <header>
         <ul>
-            <li>Ripley</li>
+            <li>Amazon</li>
             <li>Inicio</li>
-            <li>Productos</li>
+            <li style="color:red;">Clientes</li>
             <li>Contacto</li>
         </ul>
     </header>
+    <section style="text-align: center;">
+        <h1>Ingresa un nuevo cliente!</h1>
+        <ul id="lista_inputs" >
+            <li><input type="text" name="nombre_cliente" id="nombre_cliente" placeholder="Ingrese el nombre del cliente"></li>
+            <li><input type="text" name="telefono" id="telefono" placeholder="Ingrese su telefono"></li>
+            <button id="crearClienteBoton">Crear cliente</button>
+        </ul>
+    </section>
     <section>
-        <h1>¡Wow! Mira la nueva línea de refrigeradores</h1>
-        <button id="verRefrisBoton">Mostrar refris!</button>
+        <h1>Lista de clientes</h1>
+        <button id="verClientesBoton">Mostrar clientes!</button>
         <div style="margin-top: 3em;">
-            <ul id="lista_productos">
+            <ul id="lista_clientes">
                 <!-- <li class="producto">
                     <p>Refri huevo</p>
                     <img src="/assets/img/refri 1.JPG" alt="">

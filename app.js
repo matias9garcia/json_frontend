@@ -1,39 +1,69 @@
-const botonMostrar = document.getElementById("verRefrisBoton")
 
 
-botonMostrar.addEventListener("click", function(event)
-    {
+$(document).ready(function() {
+    $("#verClientesBoton").click(function(event) {
         event.preventDefault();
 
-        let http = new XMLHttpRequest();
+        $.ajax({
+            url: "http://localhost:3000/clientes", // Replace with your API endpoint
+            type: "GET",
+            dataType: "json",
+            success: function(response) {
+                // Handle the response
 
-        http.open('get','productos.json', true);
+                $("#lista_clientes").empty();
 
-        http.send();
+                alert("Mostrando los clientes!");
 
-        http.onload = function () {
-            document.getElementById("lista_productos").innerHTML = "";
-            if (this.readyState == 4 && this.status == 200) {
-
-                let products = JSON.parse(this.responseText);
-                
-                alert("mostrando los refris!")
-                for(let item of products){
-                    var output = document.createElement("li");
-                    output.innerHTML = `
-                        <li class="producto">
-                            <p>${item.titulo}</p>
+                $.each(response, function(index, item) {
+                    var output = `
+                        <li class="cliente">
+                            <p>${item.nombre}</p>
                             <img src="${item.imagen}" alt="">
-                            <p class="precio">$ ${item.precio}</p>
-                            <p class="descripcion">${item.descripcion}</p>
+                            <p class="precio">Celular: ${item.telefono}</p>
                         </li>
-                    `
+                    `;
 
-                    document.getElementById("lista_productos").appendChild(output);
-                }
+                    $("#lista_clientes").append(output);
+                });
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                // Handle the error
+                console.error(error);
             }
+        });
+    });
+});
 
+
+$("#crearClienteBoton").click(function(event) {
+    event.preventDefault();
+
+    // Prepare client data
+    var clienteData = {
+        "imagen": "/assets/img/eddy.jpg",
+        "nombre": $('#nombre_cliente').val(),
+        "telefono": $('#telefono').val(),
+        
+        // Add more properties as needed
+    };
+
+    // Make POST request
+    $.ajax({
+        url: "http://localhost:3000/clientes",
+        type: "POST",
+        dataType: "json",
+        contentType: "application/json",
+        data: JSON.stringify(clienteData),
+        success: function(response) {
+            // Handle the response
+            alert(response);
+            console.log(response);
+        },
+        error: function(xhr, status, error) {
+            // Handle the error
+            console.log(error);
         }
-    }
-) 
-
+    });
+});

@@ -1,0 +1,12 @@
+[
+  {
+    "imagen": "/assets/img/ed.jpg",
+    "nombre": "Luis",
+    "telefono": "123456789"
+  },
+  {
+    "imagen": "/assets/img/edd.jpg",
+    "nombre": "Miguel",
+    "telefono": "123456789"
+  }
+]

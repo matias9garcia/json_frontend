@@ -14,7 +14,7 @@ header ul {
     display: flex;
 }
 
-#lista_productos {
+#lista_clientes {
     list-style-type: none;
     display: flex;
     justify-content: space-around;
@@ -23,7 +23,11 @@ header ul {
     
 }
 
-.producto {
+#lista_inputs {
+    margin: 1em;
+}
+
+.cliente {
     width: max-content;
     padding: 1em;
     border: 0.5px;
